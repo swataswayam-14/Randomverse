@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Socket, io } from "socket.io-client";
 
+import "./Room.css";
+
 const URL = "http://localhost:3000";
 
 export const Room = ({
@@ -200,10 +202,10 @@ export const Room = ({
         }
     }, [localVideoRef])
 
-    return <div>
+    return <div className="video-container">
         Hi {name}
-        <video autoPlay width={400} height={400} ref={localVideoRef} />
-        {lobby ? "Waiting to connect you to someone" : null}
-        <video autoPlay width={400} height={400} ref={remoteVideoRef} />
+        <video className="video"  autoPlay width={400} height={400} ref={localVideoRef} />
+        {lobby ? ( <p className="waiting-message">Waiting to connect you to someone</p> ): null}
+        <video className="video" autoPlay width={400} height={400} ref={remoteVideoRef} />
     </div>
 }

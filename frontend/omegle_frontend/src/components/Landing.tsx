@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { Room } from "./Room";
+import "./Landing.css";
 
 export const Landing = () => {
     const [name, setName] = useState("");
@@ -36,13 +37,13 @@ export const Landing = () => {
 
     if (!joined) {
             
-    return <div>
-            <video autoPlay ref={videoRef}></video>
-            <input type="text" onChange={(e) => {
+    return <div className="hair-check-container">
+            <video className="video"  autoPlay ref={videoRef}></video>
+            <input className="input-field" type="text" onChange={(e) => {
                 setName(e.target.value);
             }}>
             </input>
-            <button onClick={() => {
+            <button className="join-button" onClick={() => {
                 setJoined(true);
             }}>Join</button>
         </div>
